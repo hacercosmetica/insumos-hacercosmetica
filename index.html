@@ -24,47 +24,47 @@
       background: var(--bg);
       color: var(--text);
       font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-      line-height: 1.45;
-      padding-bottom: 6.2rem;
+      line-height: 1.4;
+      padding-bottom: 5.8rem;
     }
     .wrap {
       max-width: 780px;
       margin: 0 auto;
-      padding: 1.5rem 1rem 1rem;
+      padding: 1.35rem 1rem 1rem;
     }
     .brand-tag {
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--primary);
-      margin-bottom: 0.45rem;
+      margin-bottom: 0.4rem;
     }
     h1 {
       font-family: 'Fraunces', Georgia, serif;
-      font-size: 2.15rem;
+      font-size: 2.05rem;
       line-height: 1.12;
       color: var(--text);
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.65rem;
     }
     .hero-sub {
       color: var(--muted);
-      font-size: 0.98rem;
-      margin-bottom: 1.15rem;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
       max-width: 620px;
     }
     .steps-pill-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
-      padding-bottom: 1.15rem;
+      gap: 0.45rem;
+      padding-bottom: 1rem;
       border-bottom: 1.5px solid var(--primary);
-      margin-bottom: 1.15rem;
+      margin-bottom: 1rem;
     }
     .step-pill {
-      padding: 0.42rem 0.85rem;
+      padding: 0.38rem 0.8rem;
       border-radius: 999px;
-      font-size: 0.86rem;
+      font-size: 0.84rem;
       font-weight: 600;
       background: var(--primary-soft);
       color: var(--primary);
@@ -77,38 +77,36 @@
     /* Buscador */
     .search-box {
       position: relative;
-      margin-bottom: 0.9rem;
+      margin-bottom: 0.8rem;
     }
     .search-input {
       width: 100%;
-      padding: 0.82rem 1rem 0.82rem 2.55rem;
+      padding: 0.75rem 0.95rem 0.75rem 2.45rem;
       border: 1px solid var(--border);
       border-radius: 14px;
       background: var(--surface);
-      font-size: 0.95rem;
+      font-size: 0.94rem;
       color: var(--text);
       outline: none;
     }
-    .search-input:focus {
-      border-color: var(--primary);
-    }
+    .search-input:focus { border-color: var(--primary); }
     .search-icon {
       position: absolute;
-      left: 0.9rem;
+      left: 0.85rem;
       top: 50%;
       transform: translateY(-50%);
       color: var(--muted);
-      font-size: 1rem;
+      font-size: 0.95rem;
       pointer-events: none;
     }
 
     /* Categorías */
     .categories {
       display: flex;
-      gap: 0.55rem;
+      gap: 0.5rem;
       overflow-x: auto;
-      padding-bottom: 0.4rem;
-      margin-bottom: 1.4rem;
+      padding-bottom: 0.35rem;
+      margin-bottom: 1.25rem;
       scrollbar-width: none;
     }
     .categories::-webkit-scrollbar { display: none; }
@@ -116,9 +114,9 @@
       border: 1px solid var(--border);
       background: var(--surface);
       color: var(--text);
-      padding: 0.52rem 1rem;
+      padding: 0.48rem 0.95rem;
       border-radius: 999px;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       font-weight: 600;
       white-space: nowrap;
       cursor: pointer;
@@ -129,23 +127,23 @@
       border-color: var(--primary);
     }
 
-    /* Secciones de insumos */
-    .section-block { margin-bottom: 1.65rem; }
+    /* Secciones compactas */
+    .section-block { margin-bottom: 1.4rem; }
     .section-head {
       display: flex;
       align-items: baseline;
       justify-content: space-between;
       gap: 0.75rem;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.6rem;
     }
     .section-head h2 {
       font-family: 'Fraunces', Georgia, serif;
-      font-size: 1.45rem;
+      font-size: 1.38rem;
       color: var(--text);
       font-weight: 600;
     }
     .section-count {
-      font-size: 0.86rem;
+      font-size: 0.84rem;
       color: var(--muted);
       white-space: nowrap;
     }
@@ -159,35 +157,36 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 0.85rem;
-      padding: 0.95rem 1rem;
+      gap: 0.7rem;
+      padding: 0.78rem 0.95rem;
       border-bottom: 1px solid var(--border);
     }
     .item-row:last-child { border-bottom: none; }
     .item-info { flex: 1; min-width: 0; }
     .item-name {
-      font-size: 1rem;
+      font-size: 0.96rem;
       font-weight: 700;
       color: var(--text);
+      line-height: 1.25;
     }
     .item-sub {
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       color: var(--muted);
-      margin-top: 0.1rem;
+      margin-top: 0.08rem;
     }
     .item-unit {
-      font-size: 0.88rem;
+      font-size: 0.84rem;
       color: var(--muted);
-      margin-top: 0.15rem;
+      margin-top: 0.1rem;
     }
     .item-right {
       display: flex;
       align-items: center;
-      gap: 0.8rem;
+      gap: 0.65rem;
       flex-shrink: 0;
     }
     .item-price {
-      font-size: 1.05rem;
+      font-size: 1rem;
       font-weight: 700;
       color: var(--text);
       text-align: right;
@@ -197,38 +196,36 @@
       background: var(--surface);
       color: var(--primary);
       font-weight: 700;
-      font-size: 0.9rem;
-      padding: 0.52rem 1.05rem;
+      font-size: 0.86rem;
+      padding: 0.44rem 0.92rem;
       border-radius: 999px;
       cursor: pointer;
     }
-    .btn-add:hover {
-      background: var(--primary-soft);
-    }
+    .btn-add:hover { background: var(--primary-soft); }
     .qty-box {
       display: inline-flex;
       align-items: center;
-      gap: 0.35rem;
+      gap: 0.3rem;
       background: var(--primary-soft);
       border-radius: 999px;
-      padding: 0.22rem 0.45rem;
+      padding: 0.18rem 0.4rem;
     }
     .qty-btn {
-      width: 26px;
-      height: 26px;
+      width: 24px;
+      height: 24px;
       border: none;
       background: var(--surface);
       color: var(--primary);
       border-radius: 999px;
       font-weight: 700;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       cursor: pointer;
     }
     .qty-num {
-      min-width: 18px;
+      min-width: 16px;
       text-align: center;
       font-weight: 700;
-      font-size: 0.88rem;
+      font-size: 0.84rem;
       color: var(--primary-dark);
     }
 
@@ -240,7 +237,7 @@
       bottom: 0;
       background: var(--surface);
       border-top: 1px solid var(--border);
-      padding: 0.8rem 1rem;
+      padding: 0.75rem 1rem;
       z-index: 40;
     }
     .bottom-inner {
@@ -252,11 +249,11 @@
       gap: 1rem;
     }
     .bottom-units {
-      font-size: 0.86rem;
+      font-size: 0.84rem;
       color: var(--muted);
     }
     .bottom-total {
-      font-size: 1.45rem;
+      font-size: 1.38rem;
       font-weight: 700;
       color: var(--text);
       line-height: 1.15;
@@ -266,8 +263,8 @@
       background: #9eb0a3;
       color: #ffffff;
       font-weight: 700;
-      font-size: 1rem;
-      padding: 0.82rem 1.55rem;
+      font-size: 0.96rem;
+      padding: 0.76rem 1.45rem;
       border-radius: 999px;
       cursor: not-allowed;
     }
@@ -276,7 +273,7 @@
       cursor: pointer;
     }
 
-    /* Modal de resumen y datos */
+    /* Modal de cotización */
     .modal-backdrop {
       position: fixed;
       inset: 0;
@@ -293,10 +290,10 @@
       max-width: 560px;
       max-height: 88vh;
       border-radius: 20px 20px 0 0;
-      padding: 1.25rem;
+      padding: 1.2rem;
       display: flex;
       flex-direction: column;
-      gap: 0.95rem;
+      gap: 0.85rem;
       overflow-y: auto;
     }
     @media (min-width: 640px) {
@@ -308,53 +305,49 @@
       align-items: center;
       justify-content: space-between;
       border-bottom: 1px solid var(--border);
-      padding-bottom: 0.7rem;
+      padding-bottom: 0.65rem;
     }
     .modal-top h3 {
       font-family: 'Fraunces', Georgia, serif;
-      font-size: 1.35rem;
+      font-size: 1.3rem;
     }
     .close-btn {
       border: none;
       background: var(--bg);
       color: var(--text);
-      width: 34px;
-      height: 34px;
+      width: 32px;
+      height: 32px;
       border-radius: 999px;
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       cursor: pointer;
     }
-    .quote-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.55rem;
-    }
+    .quote-list { display: flex; flex-direction: column; gap: 0.5rem; }
     .quote-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.65rem 0.75rem;
+      padding: 0.6rem 0.7rem;
       background: var(--bg);
       border-radius: 12px;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
     }
-    .form-group { display: flex; flex-direction: column; gap: 0.3rem; }
-    .form-group label { font-size: 0.84rem; font-weight: 600; color: var(--text); }
+    .form-group { display: flex; flex-direction: column; gap: 0.25rem; }
+    .form-group label { font-size: 0.82rem; font-weight: 600; color: var(--text); }
     .form-group input, .form-group textarea {
       width: 100%;
-      padding: 0.65rem 0.75rem;
+      padding: 0.6rem 0.72rem;
       border: 1px solid var(--border);
       border-radius: 10px;
       font-family: inherit;
-      font-size: 0.92rem;
+      font-size: 0.9rem;
     }
     .quote-total {
       display: flex;
       justify-content: space-between;
       font-weight: 700;
-      font-size: 1.08rem;
-      padding-top: 0.5rem;
+      font-size: 1.05rem;
+      padding-top: 0.45rem;
       border-top: 1px solid var(--border);
     }
     .btn-wa {
@@ -364,15 +357,15 @@
       background: var(--whatsapp);
       color: #ffffff;
       font-weight: 700;
-      font-size: 0.98rem;
-      padding: 0.85rem 1rem;
+      font-size: 0.95rem;
+      padding: 0.8rem 1rem;
       border-radius: 12px;
     }
     .empty-msg {
       text-align: center;
       color: var(--muted);
-      padding: 1.2rem 0.5rem;
-      font-size: 0.92rem;
+      padding: 1.1rem 0.5rem;
+      font-size: 0.9rem;
     }
   </style>
 </head>
@@ -405,7 +398,6 @@
     <div id="catalog"></div>
   </div>
 
-  <!-- Barra inferior fija -->
   <div class="bottom-bar">
     <div class="bottom-inner">
       <div>
@@ -416,7 +408,6 @@
     </div>
   </div>
 
-  <!-- Modal de cotización -->
   <div class="modal-backdrop" id="quote-modal" onclick="closeOnBackdrop(event)">
     <div class="modal">
       <div class="modal-top">
@@ -457,83 +448,20 @@
     const WHATSAPP_NUMBER = "584120000000";
 
     const INSUMOS = [
-      {
-        id: "aceite-rosa-mosqueta",
-        name: "Aceite de rosa mosqueta",
-        subtitle: "",
-        unit: "30 ml",
-        price: 9.52,
-        category: "Aceites vegetales"
-      },
-      {
-        id: "aceite-ricino",
-        name: "Aceite de ricino",
-        subtitle: "",
-        unit: "100 ml",
-        price: 9.52,
-        category: "Aceites vegetales"
-      },
-      {
-        id: "miristato-isopropilo",
-        name: "Miristato de isopropilo",
-        subtitle: "Isopropyl myristate · IPM",
-        unit: "30 ml",
-        price: 4.76,
-        category: "Aceites vegetales"
-      },
-      {
-        id: "manteca-cacao",
-        name: "Manteca de cacao",
-        subtitle: "",
-        unit: "100 g",
-        price: 5.95,
-        category: "Mantecas y ceras"
-      },
-      {
-        id: "manteca-karite",
-        name: "Manteca de karité",
-        subtitle: "",
-        unit: "100 g",
-        price: 8.33,
-        category: "Mantecas y ceras"
-      },
-      {
-        id: "manteca-mango",
-        name: "Manteca de mango",
-        subtitle: "",
-        unit: "100 g",
-        price: 11.90,
-        category: "Mantecas y ceras"
-      },
-      {
-        id: "cera-abejas-blanca",
-        name: "Cera de abejas blanca",
-        subtitle: "",
-        unit: "100 g",
-        price: 9.52,
-        category: "Mantecas y ceras"
-      },
-      {
-        id: "coco-betaina",
-        name: "Coco-betaína",
-        subtitle: "Cocamidopropyl betaine",
-        unit: "250 g",
-        price: 5.00,
-        category: "Tensioactivos"
-      },
-      {
-        id: "niacinamida",
-        name: "Niacinamida",
-        subtitle: "Vitamina B3",
-        unit: "50 g",
-        price: 6.50,
-        category: "Activos cosméticos"
-      }
+      { id: "aceite-rosa-mosqueta", name: "Aceite de rosa mosqueta", subtitle: "", unit: "30 ml", price: 9.52, category: "Aceites vegetales" },
+      { id: "aceite-ricino", name: "Aceite de ricino", subtitle: "", unit: "100 ml", price: 9.52, category: "Aceites vegetales" },
+      { id: "miristato-isopropilo", name: "Miristato de isopropilo", subtitle: "Isopropyl myristate · IPM", unit: "30 ml", price: 4.76, category: "Aceites vegetales" },
+      { id: "manteca-cacao", name: "Manteca de cacao", subtitle: "", unit: "100 g", price: 5.95, category: "Mantecas y ceras" },
+      { id: "manteca-karite", name: "Manteca de karité", subtitle: "", unit: "100 g", price: 8.33, category: "Mantecas y ceras" },
+      { id: "manteca-mango", name: "Manteca de mango", subtitle: "", unit: "100 g", price: 11.90, category: "Mantecas y ceras" },
+      { id: "cera-abejas-blanca", name: "Cera de abejas blanca", subtitle: "", unit: "100 g", price: 9.52, category: "Mantecas y ceras" },
+      { id: "coco-betaina", name: "Coco-betaína", subtitle: "Cocamidopropyl betaine", unit: "250 g", price: 5.00, category: "Tensioactivos" },
+      { id: "niacinamida", name: "Niacinamida", subtitle: "Vitamina B3", unit: "50 g", price: 6.50, category: "Activos cosméticos" }
     ];
 
     const categories = ["Todas", ...new Set(INSUMOS.map(item => item.category))];
     let selectedCategory = "Todas";
-    const selection = {}; // { [id]: cantidad }
+    const selection = {};
 
     function formatPrice(value) {
       return "$" + Number(value).toFixed(2).replace(".", ",");
@@ -575,11 +503,8 @@
 
     window.changeItemQty = function(id, delta) {
       const next = (selection[id] || 0) + delta;
-      if (next <= 0) {
-        delete selection[id];
-      } else {
-        selection[id] = next;
-      }
+      if (next <= 0) delete selection[id];
+      else selection[id] = next;
       renderCatalog();
       renderBottomBar();
       if (document.getElementById("quote-modal").classList.contains("open")) {
@@ -656,16 +581,11 @@
 
     function renderBottomBar() {
       const { units, amount } = getTotals();
-      document.getElementById("bar-units").textContent =
-        `${units} ${units === 1 ? "unidad" : "unidades"}`;
+      document.getElementById("bar-units").textContent = `${units} ${units === 1 ? "unidad" : "unidades"}`;
       document.getElementById("bar-total").textContent = formatPrice(amount);
-
       const btn = document.getElementById("btn-continue");
-      if (units > 0) {
-        btn.classList.add("ready");
-      } else {
-        btn.classList.remove("ready");
-      }
+      if (units > 0) btn.classList.add("ready");
+      else btn.classList.remove("ready");
     }
 
     function updateWhatsAppHref() {
@@ -677,28 +597,18 @@
 
       const lines = selectedEntries.map(([id, qty], index) => {
         const item = INSUMOS.find(p => p.id === id);
-        const subtotal = formatPrice(item.price * qty);
-        return `${index + 1}. ${item.name} (${item.unit}) x${qty} = ${subtotal}`;
+        return `${index + 1}. ${item.name} (${item.unit}) x${qty} = ${formatPrice(item.price * qty)}`;
       });
 
-      const parts = [
-        "Hola Hacer Cosmética, quisiera solicitar la siguiente cotización:",
-        ""
-      ];
-
+      const parts = ["Hola Hacer Cosmética, quisiera solicitar la siguiente cotización:", ""];
       if (clientName) parts.push(`Nombre/Marca: ${clientName}`);
       if (clientCity) parts.push(`Ciudad/Envío: ${clientCity}`);
       if (clientName || clientCity) parts.push("");
+      parts.push(...lines, "", `Total estimado: ${formatPrice(amount)}`);
+      if (clientNotes) parts.push("", `Notas: ${clientNotes}`);
 
-      parts.push(...lines);
-      parts.push("", `Total estimado: ${formatPrice(amount)}`);
-
-      if (clientNotes) {
-        parts.push("", `Notas: ${clientNotes}`);
-      }
-
-      const text = encodeURIComponent(parts.join("\n"));
-      document.getElementById("btn-send-wa").href = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+      document.getElementById("btn-send-wa").href =
+        `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(parts.join("\n"))}`;
     }
 
     function renderQuoteModal() {
@@ -735,8 +645,7 @@
     }
 
     window.openQuoteModal = function() {
-      const { units } = getTotals();
-      if (units === 0) return;
+      if (getTotals().units === 0) return;
       renderQuoteModal();
       document.getElementById("quote-modal").classList.add("open");
     };
@@ -746,9 +655,7 @@
     };
 
     window.closeOnBackdrop = function(event) {
-      if (event.target.id === "quote-modal") {
-        closeQuoteModal();
-      }
+      if (event.target.id === "quote-modal") closeQuoteModal();
     };
 
     renderCategories();
