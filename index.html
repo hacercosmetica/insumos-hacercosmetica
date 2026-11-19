@@ -3,164 +3,284 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hacer Cosmética — Insumos Cosméticos</title>
+  <title>Hacer Cosmética — Arma tu cotización</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #faf7f9;
-      --card: #ffffff;
-      --text: #231f20;
-      --muted: #6b6268;
-      --accent: #7c3aed;
-      --accent-dark: #5b21b6;
-      --border: #e8e0e6;
+      --bg: #f6f7f2;
+      --surface: #ffffff;
+      --text: #1f2922;
+      --muted: #68736b;
+      --primary: #2d5a3c;
+      --primary-dark: #1f412b;
+      --primary-soft: #e6efe8;
+      --border: #dce3dc;
       --whatsapp: #16a34a;
-      --danger: #dc2626;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
-    body { background: var(--bg); color: var(--text); line-height: 1.5; padding-bottom: 5.5rem; }
-    header {
-      background: linear-gradient(135deg, #4c1d95, #7c3aed);
-      color: #fff;
-      padding: 2rem 1.25rem;
-      text-align: center;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      line-height: 1.45;
+      padding-bottom: 6.2rem;
     }
-    header h1 { font-size: 1.75rem; margin-bottom: 0.35rem; }
-    header p { opacity: 0.92; font-size: 0.98rem; max-width: 640px; margin: 0 auto; }
-    .container { max-width: 1040px; margin: 0 auto; padding: 1.5rem 1rem 2rem; }
-    .filters {
+    .wrap {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 1.5rem 1rem 1rem;
+    }
+    .brand-tag {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 0.45rem;
+    }
+    h1 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 2.15rem;
+      line-height: 1.12;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+    .hero-sub {
+      color: var(--muted);
+      font-size: 0.98rem;
+      margin-bottom: 1.15rem;
+      max-width: 620px;
+    }
+    .steps-pill-row {
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
-      justify-content: center;
-      margin-bottom: 1.5rem;
+      padding-bottom: 1.15rem;
+      border-bottom: 1.5px solid var(--primary);
+      margin-bottom: 1.15rem;
     }
-    .filter-btn {
-      border: 1px solid var(--border);
-      background: var(--card);
-      color: var(--text);
-      padding: 0.45rem 0.9rem;
+    .step-pill {
+      padding: 0.42rem 0.85rem;
       border-radius: 999px;
-      cursor: pointer;
-      font-size: 0.9rem;
+      font-size: 0.86rem;
+      font-weight: 600;
+      background: var(--primary-soft);
+      color: var(--primary);
     }
-    .filter-btn.active, .filter-btn:hover {
-      background: var(--accent);
-      color: #fff;
-      border-color: var(--accent);
+    .step-pill.active {
+      background: var(--primary);
+      color: #ffffff;
     }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 1.15rem;
+
+    /* Buscador */
+    .search-box {
+      position: relative;
+      margin-bottom: 0.9rem;
     }
-    .card {
-      background: var(--card);
+    .search-input {
+      width: 100%;
+      padding: 0.82rem 1rem 0.82rem 2.55rem;
       border: 1px solid var(--border);
       border-radius: 14px;
-      padding: 1.1rem;
+      background: var(--surface);
+      font-size: 0.95rem;
+      color: var(--text);
+      outline: none;
+    }
+    .search-input:focus {
+      border-color: var(--primary);
+    }
+    .search-icon {
+      position: absolute;
+      left: 0.9rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      font-size: 1rem;
+      pointer-events: none;
+    }
+
+    /* Categorías */
+    .categories {
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      gap: 0.55rem;
+      overflow-x: auto;
+      padding-bottom: 0.4rem;
+      margin-bottom: 1.4rem;
+      scrollbar-width: none;
     }
-    .badge {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--accent-dark);
-      background: #ede9fe;
-      padding: 0.2rem 0.55rem;
-      border-radius: 999px;
-      margin-bottom: 0.5rem;
-    }
-    .card h3 { font-size: 1.08rem; margin-bottom: 0.35rem; }
-    .card p { font-size: 0.88rem; color: var(--muted); margin-bottom: 0.9rem; }
-    label { display: block; font-size: 0.82rem; font-weight: 600; margin-bottom: 0.3rem; }
-    select {
-      width: 100%;
-      padding: 0.5rem;
+    .categories::-webkit-scrollbar { display: none; }
+    .cat-btn {
       border: 1px solid var(--border);
-      border-radius: 8px;
-      margin-bottom: 0.85rem;
-      background: #fff;
+      background: var(--surface);
+      color: var(--text);
+      padding: 0.52rem 1rem;
+      border-radius: 999px;
       font-size: 0.9rem;
+      font-weight: 600;
+      white-space: nowrap;
+      cursor: pointer;
     }
-    .price-row {
+    .cat-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    /* Secciones de insumos */
+    .section-block { margin-bottom: 1.65rem; }
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+    .section-head h2 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 1.45rem;
+      color: var(--text);
+      font-weight: 600;
+    }
+    .section-count {
+      font-size: 0.86rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .item-list {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .item-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 0.85rem;
+      gap: 0.85rem;
+      padding: 0.95rem 1rem;
+      border-bottom: 1px solid var(--border);
     }
-    .price { font-size: 1.15rem; font-weight: 700; color: var(--text); }
+    .item-row:last-child { border-bottom: none; }
+    .item-info { flex: 1; min-width: 0; }
+    .item-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .item-sub {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 0.1rem;
+    }
+    .item-unit {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-top: 0.15rem;
+    }
+    .item-right {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      flex-shrink: 0;
+    }
+    .item-price {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      text-align: right;
+    }
     .btn-add {
-      width: 100%;
-      border: none;
-      background: var(--accent);
-      color: #fff;
-      font-weight: 600;
-      padding: 0.68rem 0.9rem;
-      border-radius: 10px;
-      font-size: 0.92rem;
+      border: 1.5px solid var(--primary);
+      background: var(--surface);
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.52rem 1.05rem;
+      border-radius: 999px;
       cursor: pointer;
     }
-    .btn-add:hover { background: var(--accent-dark); }
-    .toast {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      background: #1f2937;
-      color: #fff;
-      padding: 0.65rem 1rem;
-      border-radius: 10px;
-      font-size: 0.88rem;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
-      opacity: 0;
-      transform: translateY(-10px);
-      transition: all 0.25s ease;
-      pointer-events: none;
-      z-index: 60;
+    .btn-add:hover {
+      background: var(--primary-soft);
     }
-    .toast.show { opacity: 1; transform: translateY(0); }
+    .qty-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: var(--primary-soft);
+      border-radius: 999px;
+      padding: 0.22rem 0.45rem;
+    }
+    .qty-btn {
+      width: 26px;
+      height: 26px;
+      border: none;
+      background: var(--surface);
+      color: var(--primary);
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+    .qty-num {
+      min-width: 18px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--primary-dark);
+    }
 
-    /* Barra flotante del carrito */
-    .cart-bar {
+    /* Barra inferior fija */
+    .bottom-bar {
       position: fixed;
-      bottom: 0;
       left: 0;
       right: 0;
-      background: #fff;
+      bottom: 0;
+      background: var(--surface);
       border-top: 1px solid var(--border);
       padding: 0.8rem 1rem;
-      box-shadow: 0 -4px 16px rgba(0,0,0,0.08);
       z-index: 40;
     }
-    .cart-bar-inner {
-      max-width: 1040px;
+    .bottom-inner {
+      max-width: 780px;
       margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 0.75rem;
+      gap: 1rem;
     }
-    .cart-summary { font-size: 0.92rem; }
-    .cart-summary strong { display: block; font-size: 1.05rem; color: var(--accent-dark); }
-    .btn-open-cart {
-      border: none;
-      background: var(--whatsapp);
-      color: #fff;
+    .bottom-units {
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+    .bottom-total {
+      font-size: 1.45rem;
       font-weight: 700;
-      padding: 0.7rem 1.1rem;
-      border-radius: 10px;
-      font-size: 0.92rem;
+      color: var(--text);
+      line-height: 1.15;
+    }
+    .btn-continue {
+      border: none;
+      background: #9eb0a3;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 0.82rem 1.55rem;
+      border-radius: 999px;
+      cursor: not-allowed;
+    }
+    .btn-continue.ready {
+      background: var(--primary);
       cursor: pointer;
-      white-space: nowrap;
     }
 
-    /* Modal del carrito */
+    /* Modal de resumen y datos */
     .modal-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.5);
+      background: rgba(18, 26, 20, 0.48);
       display: none;
       align-items: flex-end;
       justify-content: center;
@@ -168,151 +288,167 @@
     }
     .modal-backdrop.open { display: flex; }
     .modal {
-      background: #fff;
+      background: var(--surface);
       width: 100%;
       max-width: 560px;
-      max-height: 86vh;
-      border-radius: 18px 18px 0 0;
+      max-height: 88vh;
+      border-radius: 20px 20px 0 0;
       padding: 1.25rem;
       display: flex;
       flex-direction: column;
-      gap: 0.9rem;
+      gap: 0.95rem;
+      overflow-y: auto;
     }
     @media (min-width: 640px) {
       .modal-backdrop { align-items: center; padding: 1rem; }
-      .modal { border-radius: 16px; max-height: 82vh; }
+      .modal { border-radius: 18px; }
     }
-    .modal-header {
+    .modal-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
       border-bottom: 1px solid var(--border);
-      padding-bottom: 0.65rem;
+      padding-bottom: 0.7rem;
     }
-    .modal-header h2 { font-size: 1.15rem; }
-    .btn-close {
+    .modal-top h3 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 1.35rem;
+    }
+    .close-btn {
       border: none;
-      background: #f3f4f6;
+      background: var(--bg);
       color: var(--text);
-      width: 32px;
-      height: 32px;
+      width: 34px;
+      height: 34px;
       border-radius: 999px;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       cursor: pointer;
     }
-    .cart-items {
-      overflow-y: auto;
+    .quote-list {
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
-      padding-right: 0.2rem;
+      gap: 0.55rem;
     }
-    .cart-item {
+    .quote-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.65rem 0.75rem;
+      background: var(--bg);
+      border-radius: 12px;
+      font-size: 0.9rem;
+    }
+    .form-group { display: flex; flex-direction: column; gap: 0.3rem; }
+    .form-group label { font-size: 0.84rem; font-weight: 600; color: var(--text); }
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 0.65rem 0.75rem;
       border: 1px solid var(--border);
       border-radius: 10px;
-      padding: 0.75rem;
+      font-family: inherit;
+      font-size: 0.92rem;
+    }
+    .quote-total {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      gap: 0.6rem;
-    }
-    .cart-item-info h4 { font-size: 0.95rem; }
-    .cart-item-info small { color: var(--muted); display: block; font-size: 0.82rem; }
-    .cart-item-sub { font-weight: 700; font-size: 0.92rem; margin-top: 0.2rem; }
-    .qty-controls { display: flex; align-items: center; gap: 0.35rem; }
-    .qty-btn {
-      width: 28px;
-      height: 28px;
-      border: 1px solid var(--border);
-      background: #f9fafb;
-      border-radius: 6px;
       font-weight: 700;
-      cursor: pointer;
-    }
-    .qty-val { min-width: 22px; text-align: center; font-size: 0.9rem; font-weight: 600; }
-    .btn-remove {
-      border: none;
-      background: transparent;
-      color: var(--danger);
-      font-size: 0.85rem;
-      cursor: pointer;
-      margin-left: 0.25rem;
-    }
-    .cart-total-box {
-      border-top: 1px solid var(--border);
-      padding-top: 0.75rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       font-size: 1.08rem;
-      font-weight: 700;
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--border);
     }
-    .modal-actions { display: flex; gap: 0.6rem; }
-    .btn-clear {
-      border: 1px solid var(--border);
-      background: #fff;
-      color: var(--muted);
-      padding: 0.72rem 0.9rem;
-      border-radius: 10px;
-      font-size: 0.88rem;
-      cursor: pointer;
-    }
-    .btn-send-wa {
-      flex: 1;
+    .btn-wa {
+      display: block;
       text-align: center;
       text-decoration: none;
       background: var(--whatsapp);
-      color: #fff;
+      color: #ffffff;
       font-weight: 700;
-      padding: 0.75rem 1rem;
-      border-radius: 10px;
-      font-size: 0.95rem;
+      font-size: 0.98rem;
+      padding: 0.85rem 1rem;
+      border-radius: 12px;
     }
-    .empty-cart { text-align: center; color: var(--muted); padding: 1.5rem 0.5rem; font-size: 0.92rem; }
+    .empty-msg {
+      text-align: center;
+      color: var(--muted);
+      padding: 1.2rem 0.5rem;
+      font-size: 0.92rem;
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Hacer Cosmética — Insumos</h1>
-    <p>Acumula los insumos y presentaciones que necesites en tu carrito y envía tu pedido completo por WhatsApp.</p>
-  </header>
+  <div class="wrap">
+    <div class="brand-tag">Hacer Cosmética · Insumos Cosméticos</div>
+    <h1>Arma tu cotización</h1>
+    <p class="hero-sub">
+      Marca los insumos que necesitas, envíanos la cotización por WhatsApp y llena tus datos de envío. Te confirmamos disponibilidad y te explicamos cómo pagar.
+    </p>
 
-  <main class="container">
-    <div class="filters" id="filters"></div>
-    <div class="grid" id="catalog"></div>
-  </main>
+    <div class="steps-pill-row">
+      <span class="step-pill active">1 · Insumos</span>
+      <span class="step-pill">2 · Tus datos</span>
+      <span class="step-pill">3 · Cotización</span>
+    </div>
 
-  <div class="toast" id="toast">Agregado al carrito</div>
+    <div class="search-box">
+      <span class="search-icon">&#128269;</span>
+      <input
+        type="text"
+        id="search-input"
+        class="search-input"
+        placeholder="Busca un insumo: coco-betaína, karité, niacinamida..."
+        oninput="renderCatalog()"
+      />
+    </div>
 
-  <!-- Barra fija inferior del carrito -->
-  <div class="cart-bar">
-    <div class="cart-bar-inner">
-      <div class="cart-summary">
-        <span id="bar-count">0 insumos en el carrito</span>
-        <strong id="bar-total">Total ref.: $0.00</strong>
+    <div class="categories" id="categories"></div>
+    <div id="catalog"></div>
+  </div>
+
+  <!-- Barra inferior fija -->
+  <div class="bottom-bar">
+    <div class="bottom-inner">
+      <div>
+        <div class="bottom-units" id="bar-units">0 unidades</div>
+        <div class="bottom-total" id="bar-total">$0,00</div>
       </div>
-      <button class="btn-open-cart" onclick="openCart()">Ver carrito y pedir</button>
+      <button class="btn-continue" id="btn-continue" onclick="openQuoteModal()">Continuar</button>
     </div>
   </div>
 
-  <!-- Ventana del carrito -->
-  <div class="modal-backdrop" id="cart-modal" onclick="backdropClose(event)">
+  <!-- Modal de cotización -->
+  <div class="modal-backdrop" id="quote-modal" onclick="closeOnBackdrop(event)">
     <div class="modal">
-      <div class="modal-header">
-        <h2>Tu carrito de insumos</h2>
-        <button class="btn-close" onclick="closeCart()" aria-label="Cerrar">&times;</button>
+      <div class="modal-top">
+        <h3>Tu cotización · Hacer Cosmética</h3>
+        <button class="close-btn" onclick="closeQuoteModal()" aria-label="Cerrar">&times;</button>
       </div>
-      <div class="cart-items" id="cart-items"></div>
-      <div class="cart-total-box">
-        <span>Total de referencia:</span>
-        <span id="modal-total">$0.00</span>
+
+      <div class="quote-list" id="quote-items"></div>
+
+      <div class="form-group">
+        <label for="client-name">Tu nombre o marca</label>
+        <input type="text" id="client-name" placeholder="Ej. Valeria / Taller cosmético" oninput="updateWhatsAppHref()" />
       </div>
-      <div class="modal-actions">
-        <button class="btn-clear" onclick="clearCart()">Vaciar</button>
-        <a class="btn-send-wa" id="btn-send-wa" target="_blank" rel="noopener" href="#">
-          Pedir por WhatsApp
-        </a>
+
+      <div class="form-group">
+        <label for="client-city">Ciudad / modalidad de envío o retiro</label>
+        <input type="text" id="client-city" placeholder="Ej. Mérida / Encomienda" oninput="updateWhatsAppHref()" />
       </div>
+
+      <div class="form-group">
+        <label for="client-notes">Notas adicionales (opcional)</label>
+        <textarea id="client-notes" rows="2" placeholder="Consultas de ficha técnica o presentación..." oninput="updateWhatsAppHref()"></textarea>
+      </div>
+
+      <div class="quote-total">
+        <span>Total estimado:</span>
+        <span id="modal-total">$0,00</span>
+      </div>
+
+      <a class="btn-wa" id="btn-send-wa" target="_blank" rel="noopener" href="#">
+        Enviar cotización por WhatsApp
+      </a>
     </div>
   </div>
 
@@ -320,239 +456,304 @@
     // CAMBIA ESTE NÚMERO POR TU WHATSAPP CON CÓDIGO DE PAÍS (sin + ni espacios, ej: 584120000000)
     const WHATSAPP_NUMBER = "584120000000";
 
-    const PRODUCTS = [
+    const INSUMOS = [
+      {
+        id: "aceite-rosa-mosqueta",
+        name: "Aceite de rosa mosqueta",
+        subtitle: "",
+        unit: "30 ml",
+        price: 9.52,
+        category: "Aceites vegetales"
+      },
+      {
+        id: "aceite-ricino",
+        name: "Aceite de ricino",
+        subtitle: "",
+        unit: "100 ml",
+        price: 9.52,
+        category: "Aceites vegetales"
+      },
+      {
+        id: "miristato-isopropilo",
+        name: "Miristato de isopropilo",
+        subtitle: "Isopropyl myristate · IPM",
+        unit: "30 ml",
+        price: 4.76,
+        category: "Aceites vegetales"
+      },
+      {
+        id: "manteca-cacao",
+        name: "Manteca de cacao",
+        subtitle: "",
+        unit: "100 g",
+        price: 5.95,
+        category: "Mantecas y ceras"
+      },
+      {
+        id: "manteca-karite",
+        name: "Manteca de karité",
+        subtitle: "",
+        unit: "100 g",
+        price: 8.33,
+        category: "Mantecas y ceras"
+      },
+      {
+        id: "manteca-mango",
+        name: "Manteca de mango",
+        subtitle: "",
+        unit: "100 g",
+        price: 11.90,
+        category: "Mantecas y ceras"
+      },
+      {
+        id: "cera-abejas-blanca",
+        name: "Cera de abejas blanca",
+        subtitle: "",
+        unit: "100 g",
+        price: 9.52,
+        category: "Mantecas y ceras"
+      },
       {
         id: "coco-betaina",
         name: "Coco-betaína",
-        category: "Tensioactivos",
-        description: "Tensioactivo anfótero suave para shampoos, geles limpiadores y formulaciones capilares o corporales.",
-        options: [
-          { label: "250 g", price: 5.00 },
-          { label: "500 g", price: 9.00 },
-          { label: "1 kg", price: 16.50 }
-        ]
+        subtitle: "Cocamidopropyl betaine",
+        unit: "250 g",
+        price: 5.00,
+        category: "Tensioactivos"
       },
       {
         id: "niacinamida",
-        name: "Niacinamida (Vitamina B3)",
-        category: "Activos",
-        description: "Activo cosmético hidrosoluble versátil para sérums, cremas faciales y tónicos.",
-        options: [
-          { label: "50 g", price: 6.50 },
-          { label: "100 g", price: 11.50 }
-        ]
-      },
-      {
-        id: "goma-xantana",
-        name: "Goma Xantana",
-        category: "Espesantes y Gomas",
-        description: "Biopolímero espesante y estabilizante de fase acuosa para geles, emulsiones y suspensiones.",
-        options: [
-          { label: "100 g", price: 4.50 },
-          { label: "250 g", price: 9.50 }
-        ]
-      },
-      {
-        id: "alantoina",
-        name: "Alantoína",
-        category: "Activos",
-        description: "Ingrediente calmante y acondicionador cutáneo ideal para pieles sensibles y post-exposición.",
-        options: [
-          { label: "50 g", price: 4.00 },
-          { label: "100 g", price: 7.20 }
-        ]
+        name: "Niacinamida",
+        subtitle: "Vitamina B3",
+        unit: "50 g",
+        price: 6.50,
+        category: "Activos cosméticos"
       }
     ];
 
-    let cart = [];
-    let activeCategory = "Todos";
-    const categories = ["Todos", ...new Set(PRODUCTS.map(p => p.category))];
+    const categories = ["Todas", ...new Set(INSUMOS.map(item => item.category))];
+    let selectedCategory = "Todas";
+    const selection = {}; // { [id]: cantidad }
 
-    const filtersEl = document.getElementById("filters");
-    const catalogEl = document.getElementById("catalog");
-
-    function formatMoney(num) {
-      return "$" + Number(num).toFixed(2);
+    function formatPrice(value) {
+      return "$" + Number(value).toFixed(2).replace(".", ",");
     }
 
-    function showToast(text) {
-      const toast = document.getElementById("toast");
-      toast.textContent = text;
-      toast.classList.add("show");
-      clearTimeout(window._toastTimer);
-      window._toastTimer = setTimeout(() => toast.classList.remove("show"), 1800);
-    }
-
-    function renderFilters() {
-      filtersEl.innerHTML = categories.map(cat => `
-        <button class="filter-btn ${cat === activeCategory ? "active" : ""}" onclick="setCategory('${cat}')">
+    function renderCategories() {
+      const container = document.getElementById("categories");
+      container.innerHTML = categories.map(cat => `
+        <button
+          class="cat-btn ${cat === selectedCategory ? "active" : ""}"
+          onclick="selectCategory('${cat.replace(/'/g, "\\'")}')"
+        >
           ${cat}
         </button>
       `).join("");
     }
 
-    window.setCategory = function(cat) {
-      activeCategory = cat;
-      renderFilters();
+    window.selectCategory = function(cat) {
+      selectedCategory = cat;
+      renderCategories();
       renderCatalog();
     };
 
-    function filteredProducts() {
-      return activeCategory === "Todos"
-        ? PRODUCTS
-        : PRODUCTS.filter(p => p.category === activeCategory);
+    function getFilteredItems() {
+      const query = document.getElementById("search-input").value.trim().toLowerCase();
+      return INSUMOS.filter(item => {
+        const matchesCat = selectedCategory === "Todas" || item.category === selectedCategory;
+        const haystack = `${item.name} ${item.subtitle} ${item.category} ${item.unit}`.toLowerCase();
+        const matchesQuery = !query || haystack.includes(query);
+        return matchesCat && matchesQuery;
+      });
     }
 
-    window.updateCardPrice = function(idx) {
-      const selectEl = document.getElementById(`opt-${idx}`);
-      const priceEl = document.getElementById(`price-${idx}`);
-      const prod = filteredProducts()[idx];
-      const chosen = prod.options[selectEl.selectedIndex];
-      priceEl.textContent = formatMoney(chosen.price);
+    window.addItem = function(id) {
+      selection[id] = (selection[id] || 0) + 1;
+      renderCatalog();
+      renderBottomBar();
     };
 
-    window.addToCart = function(idx) {
-      const selectEl = document.getElementById(`opt-${idx}`);
-      const prod = filteredProducts()[idx];
-      const chosen = prod.options[selectEl.selectedIndex];
-      const key = `${prod.id}__${chosen.label}`;
-
-      const existing = cart.find(item => item.key === key);
-      if (existing) {
-        existing.qty += 1;
+    window.changeItemQty = function(id, delta) {
+      const next = (selection[id] || 0) + delta;
+      if (next <= 0) {
+        delete selection[id];
       } else {
-        cart.push({
-          key,
-          name: prod.name,
-          presentation: chosen.label,
-          unitPrice: chosen.price,
-          qty: 1
-        });
+        selection[id] = next;
       }
-      renderCartBar();
-      showToast(`Agregado: ${prod.name} (${chosen.label})`);
+      renderCatalog();
+      renderBottomBar();
+      if (document.getElementById("quote-modal").classList.contains("open")) {
+        renderQuoteModal();
+      }
     };
+
+    function renderActionControl(item) {
+      const qty = selection[item.id] || 0;
+      if (qty === 0) {
+        return `<button class="btn-add" onclick="addItem('${item.id}')">Añadir</button>`;
+      }
+      return `
+        <div class="qty-box">
+          <button class="qty-btn" onclick="changeItemQty('${item.id}', -1)">-</button>
+          <span class="qty-num">${qty}</span>
+          <button class="qty-btn" onclick="changeItemQty('${item.id}', 1)">+</button>
+        </div>
+      `;
+    }
 
     function renderCatalog() {
-      const list = filteredProducts();
-      catalogEl.innerHTML = list.map((prod, idx) => {
-        const firstOpt = prod.options[0];
-        return `
-          <article class="card">
-            <div>
-              <span class="badge">${prod.category}</span>
-              <h3>${prod.name}</h3>
-              <p>${prod.description}</p>
-            </div>
-            <div>
-              <label for="opt-${idx}">Presentación</label>
-              <select id="opt-${idx}" onchange="updateCardPrice(${idx})">
-                ${prod.options.map(o => `<option value="${o.label}">${o.label}</option>`).join("")}
-              </select>
-              <div class="price-row">
-                <span style="font-size:0.85rem;color:#6b6268;">Referencia:</span>
-                <span class="price" id="price-${idx}">${formatMoney(firstOpt.price)}</span>
-              </div>
-              <button class="btn-add" onclick="addToCart(${idx})">Agregar al carrito</button>
-            </div>
-          </article>
-        `;
-      }).join("");
-    }
+      const items = getFilteredItems();
+      const catalogEl = document.getElementById("catalog");
 
-    function getCartTotals() {
-      const totalItems = cart.reduce((acc, item) => acc + item.qty, 0);
-      const totalAmount = cart.reduce((acc, item) => acc + item.unitPrice * item.qty, 0);
-      return { totalItems, totalAmount };
-    }
-
-    function buildWhatsAppLink() {
-      if (cart.length === 0) {
-        return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hola Hacer Cosmética, quiero consultar sobre sus insumos.")}`;
+      if (items.length === 0) {
+        catalogEl.innerHTML = `<div class="empty-msg">No encontramos insumos con ese filtro o búsqueda.</div>`;
+        return;
       }
-      const lines = cart.map((item, i) => {
-        const sub = formatMoney(item.unitPrice * item.qty);
-        return `${i + 1}. ${item.name} (${item.presentation}) x${item.qty} = ${sub}`;
+
+      const grouped = {};
+      items.forEach(item => {
+        if (!grouped[item.category]) grouped[item.category] = [];
+        grouped[item.category].push(item);
       });
-      const { totalAmount } = getCartTotals();
-      const message = [
-        "Hola Hacer Cosmética, quisiera realizar el siguiente pedido de insumos:",
-        "",
-        ...lines,
-        "",
-        `Total de referencia: ${formatMoney(totalAmount)}`
-      ].join("\n");
 
-      return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-    }
-
-    function renderCartBar() {
-      const { totalItems, totalAmount } = getCartTotals();
-      document.getElementById("bar-count").textContent =
-        `${totalItems} ${totalItems === 1 ? "insumo" : "insumos"} en el carrito`;
-      document.getElementById("bar-total").textContent = `Total ref.: ${formatMoney(totalAmount)}`;
-      document.getElementById("modal-total").textContent = formatMoney(totalAmount);
-      document.getElementById("btn-send-wa").href = buildWhatsAppLink();
-    }
-
-    function renderCartModal() {
-      const container = document.getElementById("cart-items");
-      if (cart.length === 0) {
-        container.innerHTML = `<div class="empty-cart">Tu carrito está vacío. Agrega algún insumo para armar tu pedido.</div>`;
-      } else {
-        container.innerHTML = cart.map((item, i) => `
-          <div class="cart-item">
-            <div class="cart-item-info">
-              <h4>${item.name}</h4>
-              <small>Presentación: ${item.presentation} · ${formatMoney(item.unitPrice)} c/u</small>
-              <div class="cart-item-sub">Subtotal: ${formatMoney(item.unitPrice * item.qty)}</div>
-            </div>
-            <div class="qty-controls">
-              <button class="qty-btn" onclick="changeQty(${i}, -1)">-</button>
-              <span class="qty-val">${item.qty}</span>
-              <button class="qty-btn" onclick="changeQty(${i}, 1)">+</button>
-              <button class="qty-btn" style="color:#dc2626;" onclick="removeItem(${i})" title="Quitar">&times;</button>
-            </div>
+      catalogEl.innerHTML = Object.entries(grouped).map(([catName, list]) => `
+        <section class="section-block">
+          <div class="section-head">
+            <h2>${catName}</h2>
+            <span class="section-count">${list.length} ${list.length === 1 ? "producto" : "productos"}</span>
           </div>
-        `).join("");
-      }
-      renderCartBar();
+          <div class="item-list">
+            ${list.map(item => `
+              <div class="item-row">
+                <div class="item-info">
+                  <div class="item-name">${item.name}</div>
+                  ${item.subtitle ? `<div class="item-sub">${item.subtitle}</div>` : ""}
+                  <div class="item-unit">${item.unit}</div>
+                </div>
+                <div class="item-right">
+                  <div class="item-price">${formatPrice(item.price)}</div>
+                  ${renderActionControl(item)}
+                </div>
+              </div>
+            `).join("")}
+          </div>
+        </section>
+      `).join("");
     }
 
-    window.changeQty = function(index, delta) {
-      cart[index].qty += delta;
-      if (cart[index].qty <= 0) {
-        cart.splice(index, 1);
+    function getTotals() {
+      let units = 0;
+      let amount = 0;
+      for (const [id, qty] of Object.entries(selection)) {
+        const prod = INSUMOS.find(p => p.id === id);
+        if (prod && qty > 0) {
+          units += qty;
+          amount += prod.price * qty;
+        }
       }
-      renderCartModal();
+      return { units, amount };
+    }
+
+    function renderBottomBar() {
+      const { units, amount } = getTotals();
+      document.getElementById("bar-units").textContent =
+        `${units} ${units === 1 ? "unidad" : "unidades"}`;
+      document.getElementById("bar-total").textContent = formatPrice(amount);
+
+      const btn = document.getElementById("btn-continue");
+      if (units > 0) {
+        btn.classList.add("ready");
+      } else {
+        btn.classList.remove("ready");
+      }
+    }
+
+    function updateWhatsAppHref() {
+      const selectedEntries = Object.entries(selection).filter(([, qty]) => qty > 0);
+      const clientName = document.getElementById("client-name").value.trim();
+      const clientCity = document.getElementById("client-city").value.trim();
+      const clientNotes = document.getElementById("client-notes").value.trim();
+      const { amount } = getTotals();
+
+      const lines = selectedEntries.map(([id, qty], index) => {
+        const item = INSUMOS.find(p => p.id === id);
+        const subtotal = formatPrice(item.price * qty);
+        return `${index + 1}. ${item.name} (${item.unit}) x${qty} = ${subtotal}`;
+      });
+
+      const parts = [
+        "Hola Hacer Cosmética, quisiera solicitar la siguiente cotización:",
+        ""
+      ];
+
+      if (clientName) parts.push(`Nombre/Marca: ${clientName}`);
+      if (clientCity) parts.push(`Ciudad/Envío: ${clientCity}`);
+      if (clientName || clientCity) parts.push("");
+
+      parts.push(...lines);
+      parts.push("", `Total estimado: ${formatPrice(amount)}`);
+
+      if (clientNotes) {
+        parts.push("", `Notas: ${clientNotes}`);
+      }
+
+      const text = encodeURIComponent(parts.join("\n"));
+      document.getElementById("btn-send-wa").href = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+    }
+
+    function renderQuoteModal() {
+      const listEl = document.getElementById("quote-items");
+      const entries = Object.entries(selection).filter(([, qty]) => qty > 0);
+
+      if (entries.length === 0) {
+        listEl.innerHTML = `<div class="empty-msg">Aún no has añadido insumos.</div>`;
+      } else {
+        listEl.innerHTML = entries.map(([id, qty]) => {
+          const item = INSUMOS.find(p => p.id === id);
+          return `
+            <div class="quote-row">
+              <div>
+                <strong>${item.name}</strong><br>
+                <small style="color:#68736b;">${item.unit} · ${formatPrice(item.price)} c/u</small>
+              </div>
+              <div style="display:flex;align-items:center;gap:0.5rem;">
+                <div class="qty-box">
+                  <button class="qty-btn" onclick="changeItemQty('${item.id}', -1)">-</button>
+                  <span class="qty-num">${qty}</span>
+                  <button class="qty-btn" onclick="changeItemQty('${item.id}', 1)">+</button>
+                </div>
+                <strong>${formatPrice(item.price * qty)}</strong>
+              </div>
+            </div>
+          `;
+        }).join("");
+      }
+
+      const { amount } = getTotals();
+      document.getElementById("modal-total").textContent = formatPrice(amount);
+      updateWhatsAppHref();
+    }
+
+    window.openQuoteModal = function() {
+      const { units } = getTotals();
+      if (units === 0) return;
+      renderQuoteModal();
+      document.getElementById("quote-modal").classList.add("open");
     };
 
-    window.removeItem = function(index) {
-      cart.splice(index, 1);
-      renderCartModal();
+    window.closeQuoteModal = function() {
+      document.getElementById("quote-modal").classList.remove("open");
     };
 
-    window.clearCart = function() {
-      cart = [];
-      renderCartModal();
+    window.closeOnBackdrop = function(event) {
+      if (event.target.id === "quote-modal") {
+        closeQuoteModal();
+      }
     };
 
-    window.openCart = function() {
-      renderCartModal();
-      document.getElementById("cart-modal").classList.add("open");
-    };
-
-    window.closeCart = function() {
-      document.getElementById("cart-modal").classList.remove("open");
-    };
-
-    window.backdropClose = function(e) {
-      if (e.target.id === "cart-modal") closeCart();
-    };
-
-    renderFilters();
+    renderCategories();
     renderCatalog();
-    renderCartBar();
+    renderBottomBar();
   </script>
 </body>
 </html>
